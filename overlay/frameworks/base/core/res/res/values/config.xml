@@ -33,7 +33,9 @@
     
     <!-- The duration (in milliseconds) of a short animation. -->
     <integer name="config_shortAnimTime">150</integer>
-    
+    <integer name="config_activityShortDur">150</integer>
+    <integer name="config_activityDefaultDur">220</integer>
+
     <!-- The duration (in milliseconds) of a medium-length animation. -->
     <integer name="config_mediumAnimTime">300</integer>
     
@@ -91,7 +93,7 @@
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
          should be empty.  An example would be "softap.*" -->
- <string-array translatable="false" name="config_tether_wifi_regexs">
+    <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>wl.*</item>
     </string-array>
 
@@ -106,7 +108,7 @@
         <item>ppp\\d</item>
         <item>vsnet\\d</item>
     </string-array>
-
+ 
     <!-- Boolean indicating if we require the use of DUN on mobile for tethering.
          Note that this defaults to false so that if you move to a carrier that
          hasn't configured anything tethering will still work.  If you'd rather
@@ -252,23 +254,47 @@
 
          Must be overridden in platform specific overlays -->
      <integer-array name="config_autoBrightnessLevels">
-	<item>15</item>
-	<item>100</item>
-	<item>3000</item>
-	<item>8000</item>
-     </integer-array>
+         <item>10</item>
+         <item>25</item>
+         <item>50</item>
+         <item>100</item>
+         <item>150</item>
+         <item>200</item>
+         <item>700</item>
+         <item>1300</item>
+         <item>2000</item>
+         <item>3000</item>
+         <item>4000</item>
+         <item>5000</item>
+         <item>6000</item>
+         <item>7000</item>
+         <item>8000</item>
+         <item>9000</item>
+    </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
       <integer-array name="config_autoBrightnessLcdBacklightValues">
-	<item>24</item>
-	<item>48</item>
-	<item>108</item>
-	<item>206</item>
-	<item>246</item>
-      </integer-array>
+         <item>32</item>
+         <item>32</item>
+         <item>32</item>
+         <item>32</item>
+         <item>64</item>
+         <item>64</item>
+         <item>95</item>
+         <item>95</item>
+         <item>122</item>
+         <item>149</item>
+         <item>176</item>
+         <item>197</item>
+         <item>228</item>
+         <item>255</item>
+         <item>255</item>
+         <item>255</item>
+         <item>255</item>
+    </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
@@ -313,11 +339,12 @@
          from the touch driver. This code exists for one particular device,
          and should not be enabled for any others. -->
     <bool name="config_filterJumpyTouchEvents">false</bool>
-    
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
-         specified -->
-    <string name="default_wallpaper_component">@null</string>
 
+    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
+         specified -->
+    <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
+    
+    
     <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
 
@@ -351,5 +378,10 @@
 
     <!-- Enables SIP on WIFI only -->
     <bool name="config_sip_wifi_only">false</bool>
+
+    <!-- The orientation in which case volume keys should be swapped.
+         See ROTATION_0, ROTATION_90, ROTATION_180, ROTATION_270 in android.view.Surface
+         for more details about values -->
+    <integer name="swap_volume_keys_orientation">-1</integer>
 
 </resources>

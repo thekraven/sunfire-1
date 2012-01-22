@@ -6,22 +6,22 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to this phone
 PRODUCT_COPY_FILES += \
-    device/motorola/sunfire/init.sunfire.rc:root/init.sunfire.rc \
-    device/motorola/sunfire/ueventd.sunfire.rc:root/ueventd.sunfire.rc
+    device/moto/sunfire/init.sunfire.rc:root/init.sunfire.rc \
+    device/moto/sunfire/ueventd.sunfire.rc:root/ueventd.sunfire.rc
 
 ## (2) Also get non-open-source phone-specific aspects if available
-$(call inherit-product-if-exists, vendor/motorola/sunfire/sunfire-vendor.mk)
+$(call inherit-product-if-exists, vendor/moto/sunfire/sunfire-vendor.mk)
 
 
 # motorola helper scripts
 PRODUCT_COPY_FILES += \
-    device/motorola/sunfire/scripts/pds_perm_fix.sh:system/bin/pds_perm_fix.sh \
-    device/motorola/sunfire/scripts/bt_init_wrapper.sh:system/bin/bt_init_wrapper.sh \
-    device/motorola/sunfire/scripts/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh
+    device/moto/sunfire/scripts/pds_perm_fix.sh:system/bin/pds_perm_fix.sh \
+    device/moto/sunfire/scripts/bt_init_wrapper.sh:system/bin/bt_init_wrapper.sh \
+    device/moto/sunfire/scripts/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh
 
 # sysctl conf
 PRODUCT_COPY_FILES += \
-    device/motorola/sunfire/config/sysctl.conf:system/etc/sysctl.conf
+    device/moto/sunfire/config/sysctl.conf:system/etc/sysctl.conf
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
@@ -40,12 +40,12 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # copy all kernel modules under the "modules" directory to system/lib/modules
 PRODUCT_COPY_FILES += $(shell \
-    find device/motorola/sunfire/modules -name '*.ko' \
+    find device/moto/sunfire/modules -name '*.ko' \
     | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
     | tr '\n' ' ')
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/motorola/sunfire/kernel
+	LOCAL_KERNEL := device/moto/sunfire/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -66,38 +66,38 @@ PRODUCT_PACKAGES += \
 	DockAudio \
 	Torch
 
-DEVICE_PACKAGE_OVERLAYS += device/motorola/sunfire/overlay
+DEVICE_PACKAGE_OVERLAYS += device/moto/sunfire/overlay
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
-    device/motorola/sunfire/config/vold.fstab:system/etc/vold.fstab \
-    device/motorola/sunfire/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
-    device/motorola/sunfire/config/media_profiles.xml:system/etc/media_profiles.xml \
-    device/motorola/sunfire/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/moto/sunfire/config/vold.fstab:system/etc/vold.fstab \
+    device/moto/sunfire/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+    device/moto/sunfire/config/media_profiles.xml:system/etc/media_profiles.xml \
+    device/moto/sunfire/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Digitizer files
 # Pulled from http://forum.xda-developers.com/showthread.php?t=1238306
 PRODUCT_COPY_FILES += \
-    device/motorola/sunfire/config/touchpad/20/touchpad.cfg:system/etc/touchpad/20/touchpad.cfg \
-    device/motorola/sunfire/config/touchpad/21/touchpad.cfg:system/etc/touchpad/21/touchpad.cfg \
-    device/motorola/sunfire/config/touchpad/22/touchpad.cfg:system/etc/touchpad/22/touchpad.cfg
+    device/moto/sunfire/config/touchpad/20/touchpad.cfg:system/etc/touchpad/20/touchpad.cfg \
+    device/moto/sunfire/config/touchpad/21/touchpad.cfg:system/etc/touchpad/21/touchpad.cfg \
+    device/moto/sunfire/config/touchpad/22/touchpad.cfg:system/etc/touchpad/22/touchpad.cfg
 
 #keyboard files
 PRODUCT_COPY_FILES += \
-    device/motorola/sunfire/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/motorola/sunfire/keylayout/Motorola_Mobility_Motorola_HD_Dock.kl:system/usr/keylayout/Motorola_Mobility_Motorola_HD_Dock.kl \
-    device/motorola/sunfire/keylayout/cpcap-key.kl:system/usr/keylayout/cpcap-key.kl \
-    device/motorola/sunfire/keylayout/evfwd.kl:system/usr/keylayout/evfwd.kl \
-    device/motorola/sunfire/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/motorola/sunfire/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/motorola/sunfire/keylayout/usb_keyboard_102_en_us.kl:system/usr/keylayout/usb_keyboard_102_en_us.kl \
-    device/motorola/sunfire/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl:system/usr/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl \
-    device/motorola/sunfire/keychars/usb_keyboard_102_en_us.kcm.bin:system/usr/keychars/usb_keyboard_102_en_us.kcm.bin \
-    device/motorola/sunfire/keychars/tegra-kbc.kcm.bin:system/usr/keychars/tegra-kbc.kcm.bin \
-    device/motorola/sunfire/keychars/evfwd.kcm.bin:system/usr/keychars/evfwd.kcm.bin \
-    device/motorola/sunfire/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/motorola/sunfire/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/motorola/sunfire/keychars/Motorola_Bluetooth_Wireless_Keyboard.kcm.bin:system/usr/keychars/Motorola_Bluetooth_Wireless_Keyboard.kcm.bin
+    device/moto/sunfire/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/moto/sunfire/keylayout/Motorola_Mobility_Motorola_HD_Dock.kl:system/usr/keylayout/Motorola_Mobility_Motorola_HD_Dock.kl \
+    device/moto/sunfire/keylayout/cpcap-key.kl:system/usr/keylayout/cpcap-key.kl \
+    device/moto/sunfire/keylayout/evfwd.kl:system/usr/keylayout/evfwd.kl \
+    device/moto/sunfire/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/moto/sunfire/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/moto/sunfire/keylayout/usb_keyboard_102_en_us.kl:system/usr/keylayout/usb_keyboard_102_en_us.kl \
+    device/moto/sunfire/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl:system/usr/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl \
+    device/moto/sunfire/keychars/usb_keyboard_102_en_us.kcm.bin:system/usr/keychars/usb_keyboard_102_en_us.kcm.bin \
+    device/moto/sunfire/keychars/tegra-kbc.kcm.bin:system/usr/keychars/tegra-kbc.kcm.bin \
+    device/moto/sunfire/keychars/evfwd.kcm.bin:system/usr/keychars/evfwd.kcm.bin \
+    device/moto/sunfire/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+    device/moto/sunfire/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
+    device/moto/sunfire/keychars/Motorola_Bluetooth_Wireless_Keyboard.kcm.bin:system/usr/keychars/Motorola_Bluetooth_Wireless_Keyboard.kcm.bin
 
 # Permission files
 PRODUCT_COPY_FILES += \

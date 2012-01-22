@@ -50,10 +50,10 @@ ro.HorizontalVVM=false
 
 #BEGIN Motorola, 30Jan2011, w19837, IKSUNFIRE-215, Feature ID: 35761.
 #[sprint tv transport protocol support]
-sprint.mm.http.proxy = pd.vog.sprintpcs.com
-sprint.mm.http.port = 8085
-sprint.mm.rtsp.proxy = rtsp.vog.sprintpcs.com
-sprint.mm.rtsp.port = 554
+sprint.mm.http.proxy = 0.0.0.0
+sprint.mm.http.port = 0
+sprint.mm.rtsp.proxy = 0.0.0.0
+sprint.mm.rtsp.port = 0
 sprint.mm.network.type = unknow
 sprint.mm.nai = unknown
 #END IKSUNFIRE-215

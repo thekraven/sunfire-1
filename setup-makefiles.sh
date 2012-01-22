@@ -1,7 +1,7 @@
 DEVICE=sunfire
 VENDOR=motorola
 
-mkdir -p ../../../vendor/motorola/$DEVICE
+mkdir -p ../../../vendor/moto/$DEVICE
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/motorola/$DEVICE/$DEVICE-vendor.mk
 
@@ -18,18 +18,18 @@ PRODUCT_COPY_FILES := \\
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
 # Pick up overlay for features that depend on non-open-source files
-DEVICE_PACKAGE_OVERLAYS := vendor/motorola/__DEVICE__/overlay
+DEVICE_PACKAGE_OVERLAYS := vendor/moto/__DEVICE__/overlay
 
-\$(call inherit-product, vendor/motorola/__DEVICE__/__DEVICE__-vendor-blobs.mk)
+\$(call inherit-product, vendor/moto/__DEVICE__/__DEVICE__-vendor-blobs.mk)
 EOF
 
-(cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/motorola/sunfire/BoardConfigVendor.mk
+(cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/moto/sunfire/BoardConfigVendor.mk
 
 
 USE_CAMERA_STUB := false
 EOF
 
-(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/motorola/$DEVICE/$DEVICE-vendor-blobs.mk
+(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/moto/$DEVICE/$DEVICE-vendor-blobs.mk
 
 # Needed as obj libraries
 PRODUCT_COPY_FILES += \\

@@ -452,6 +452,14 @@ on property:tcmd.suspend=2
     stop mdm_panicd
     class_stop zygote_services
 
+# Adb over Network
+on property:service.adb.tcp.port=5555
+    stop adbd
+    start adbd
+on property:service.adb.tcp.port=-1
+    stop adbd
+    start adbd
+
 # Control ftmipcd 
 on property:tcmd.usb_cable="connected"
     start ftmipcd
