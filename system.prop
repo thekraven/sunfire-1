@@ -71,6 +71,9 @@ net.tcp.buffersize.gprs=4096,8192,12288,4096,8192,12288
 # 0 -> WCDMA preferred
 ro.telephony.default_network=0
 
+# Enable HDMI mirroring
+ro.hdmi.mirror.enable=true
+
 # Mount the internal SD card, too
 ro.additionalmounts=/mnt/emmc
 
