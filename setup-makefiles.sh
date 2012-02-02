@@ -50,8 +50,6 @@ PRODUCT_COPY_FILES +=  \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libcgdrv.so:system/lib/libcgdrv.so \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libctest.so:system/lib/libctest.so \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libmirror.so:system/lib/libmirror.so \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libextdisp.so:system/lib/libextdisp.so \\
-        vendor/__VENDOR__/__DEVICE__/proprietary/lib/libhdmi.so:system/lib/libhdmi.so \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libmoto_ril.so:system/lib/libmoto_ril.so \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libnmea.so:system/lib/libnmea.so \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libOpenSLES.so:system/lib/libOpenSLES.so \\
@@ -271,19 +269,19 @@ PRODUCT_COPY_FILES +=  \\
 	vendor/__VENDOR__/__DEVICE__/proprietary/lib/bcmwimax.ko:system/lib/bcmwimax.ko
 
 # HDMI
-PRODUCT_COPY_FILES += \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/framework/com.motorola.android.iextdispservice.jar:system/framework/com.motorola.android.iextdispservice.jar \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/framework/com.motorola.android.imirrorservice.jar:system/framework/com.motorola.android.imirrorservice.jar \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libmirrorjni.so:system/lib/libmirrorjni.so \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/etc/permissions/com.motorola.android.iextdispservice.xml:system/etc/permissions/com.motorola.android.iextdispservice.xml \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/etc/permissions/com.motorola.android.imirrorservice.xml:system/etc/permissions/com.motorola.android.imirrorservice.xml \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/app/ExtDispService.apk:system/app/ExtDispService.apk \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/app/MirrorService.apk:system/app/MirrorService.apk
+#PRODUCT_COPY_FILES += \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/framework/com.motorola.android.iextdispservice.jar:system/framework/com.motorola.android.iextdispservice.jar \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/framework/com.motorola.android.imirrorservice.jar:system/framework/com.motorola.android.imirrorservice.jar \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libmirrorjni.so:system/lib/libmirrorjni.so \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/etc/permissions/com.motorola.android.iextdispservice.xml:system/etc/permissions/com.motorola.android.iextdispservice.xml \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/etc/permissions/com.motorola.android.imirrorservice.xml:system/etc/permissions/com.motorola.android.imirrorservice.xml \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/app/ExtDispService.apk:system/app/ExtDispService.apk \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/app/MirrorService.apk:system/app/MirrorService.apk
 
 # FM Radio
-PRODUCT_COPY_FILES +=  \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/bin/fmradioserver:system/bin/fmradioserver \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libfmradio_jni.so:system/lib/libfmradio_jni.so \\
-	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libfmradioplayer.so:system/lib/libfmradioplayer.so
+#PRODUCT_COPY_FILES +=  \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/bin/fmradioserver:system/bin/fmradioserver \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libfmradio_jni.so:system/lib/libfmradio_jni.so \\
+#	vendor/__VENDOR__/__DEVICE__/proprietary/lib/libfmradioplayer.so:system/lib/libfmradioplayer.so
 
 EOF
