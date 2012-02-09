@@ -83,7 +83,7 @@ ro.usb.use_custom_service=1
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
 # but none are in range.
-wifi.supplicant_scan_interval=30
+wifi.supplicant_scan_interval=90
 
 # To set wifi (AP) driver's firmware path
 ro.wifi-ap.fw-path=/system/etc/wl/sdio-g-cdc-roml-reclaim-wme-apsta-idauth-minioctl.bin
@@ -103,7 +103,7 @@ ro.cwm.forbid_format=/misc,/radio,/pds,/bootloader,/recovery,/efs
 ro.battery_light=true
 
 # Allow people to exchange sdcard and emmc mountpoints from CMParts
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ro.vold.switchablepair=/mnt/sdcard,/mnt/sdcard-ext
 
 # Tegra debugging
 persist.tegra.nvlog.level=4
