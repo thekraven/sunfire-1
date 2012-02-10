@@ -62,7 +62,6 @@ PRODUCT_LOCALES += hdpi
 
 PRODUCT_PACKAGES += \
 	Usb \
-	FM \
 	DockAudio \
 	Torch
 
