@@ -64,6 +64,7 @@ PRODUCT_PACKAGES += \
 	Usb \
 	DockAudio \
 	CMBootanimation \
+	SunfireParts \
 	Torch
 
 DEVICE_PACKAGE_OVERLAYS += device/moto/sunfire/overlay
