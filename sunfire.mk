@@ -91,6 +91,7 @@ PRODUCT_COPY_FILES += \
     device/moto/sunfire/keylayout/evfwd.kl:system/usr/keylayout/evfwd.kl \
     device/moto/sunfire/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/moto/sunfire/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+	device/moto/sunfire/keylayout/qwerty.kl:system/usr/keylayout/BTC_USB_Cordless_Mouse.kl \
     device/moto/sunfire/keylayout/usb_keyboard_102_en_us.kl:system/usr/keylayout/usb_keyboard_102_en_us.kl \
     device/moto/sunfire/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl:system/usr/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl \
     device/moto/sunfire/keychars/usb_keyboard_102_en_us.kcm.bin:system/usr/keychars/usb_keyboard_102_en_us.kcm.bin \
