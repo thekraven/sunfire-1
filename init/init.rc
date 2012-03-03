@@ -556,19 +556,19 @@ service bt_stop /system/bin/bt_init -stop
     disabled
     oneshot
 
-service wpa_supplicant /system/bin/wpa_supplicant -D wext -i eth0 -c/data/misc/wifi/wpa_supplicant.conf
-    class post-zygote_services
-    socket wpa_eth0 dgram 660 wifi wifi	
-    oneshot
-    disabled
+#service wpa_supplicant /system/bin/wpa_supplicant -D wext -i eth0 -c/data/misc/wifi/wpa_supplicant.conf
+#    class post-zygote_services
+#    socket wpa_eth0 dgram 660 wifi wifi	
+#    oneshot
+#    disabled
 
-on property:init.svc.wpa_supplicant=stopped
-    stop dhcpcd_eth0
+#on property:init.svc.wpa_supplicant=stopped
+#    stop dhcpcd_eth0
 
-service dhcpcd_eth0 /system/bin/dhcpcd
-    class post-zygote_services
-    disabled
-    oneshot
+#service dhcpcd_eth0 /system/bin/dhcpcd
+#    class post-zygote_services
+#    disabled
+#    oneshot
 
 # Ecompass daemon
 service akmd2 /system/bin/akmd2
