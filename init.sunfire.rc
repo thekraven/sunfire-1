@@ -23,7 +23,7 @@ on fs
     mount ext4 /dev/block/mmcblk0p12 /system noatime nodiratime wait ro barrier=1
     mount ext4 /dev/block/mmcblk0p16 /data nosuid nodev noatime nodiratime wait barrier=1 noauto_da_alloc
     mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev noatime nodiratime wait barrier=1 noauto_da_alloc
-    mount ext3 /dev/block/mmcblk0p13 /osh nodev noatime nodiratime wait barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p13 /osh nodev noatime nodiratime wait barrier=1 noauto_da_alloc
 
     chmod 0755 /system/etc/12m_files_copy.sh
     exec /system/bin/logwrapper /system/bin/pds_perm_fix.sh
@@ -85,18 +85,9 @@ on post-fs
 # create basic filesystem structure
 
     # Part of TCMD
-    mkdir /data/local/12m 0771 system shell
-    mkdir /data/local/12m/batch 0771 system shell
-    chown system shell /data/local/12m
-    chown system shell /data/local/12m/batch
     mkdir /data/tmp 0777 system system
     mkdir /data/data/slate 0777 root root
 
-    #wlan
-    mkdir /data/misc/wifi 0771 wifi wifi
-    mkdir /data/misc/wifi/sockets 0771 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chmod 0771 /data/misc/wifi
 
     # allow net_raw to have access to /dev/socket directory
     # CM feat
@@ -229,8 +220,6 @@ on boot
     setprop softap.interface wl0.1
 
 
-
-
 # multimedia power regulators
     chown root system /sys/devices/platform/reg-virt-vcam/enabled
     chown root system /sys/devices/platform/reg-virt-vcsi/enabled
@@ -314,7 +303,7 @@ on boot
     chown system shell /data/local/12m
     chown system shell /data/local/12m/batch
     chown system shell /data/local/tmp
-
+	
     mkdir /data/tombstones
     chmod 2775 /data/tombstones
     chown system system  /data/tombstones
@@ -537,7 +526,7 @@ service nvrm_daemon /system/bin/logwrapper /system/bin/nvrm_daemon
 #    disabled
 #    oneshot
 
-service wpa_supplicant /system/bin/wpa_supplicant -D wext -i eth0 -c /data/misc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
 #    class post-zygote_services
     class WLAN
     socket wpa_eth0 dgram 0660 wifi wifi
