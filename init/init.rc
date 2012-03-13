@@ -30,7 +30,8 @@ on post-fs
     mkdir /mnt/usbdisk_1.6 0000 system system
     mkdir /mnt/usbdisk_1.7 0000 system system
     mount rootfs rootfs / ro remount
-
+    
+ 
     # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
     chmod 0771 /data

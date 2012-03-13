@@ -17,7 +17,7 @@ $(call inherit-product-if-exists, vendor/moto/sunfire/sunfire-vendor.mk)
 PRODUCT_COPY_FILES += \
     device/moto/sunfire/scripts/pds_perm_fix.sh:system/bin/pds_perm_fix.sh \
     device/moto/sunfire/scripts/bt_init_wrapper.sh:system/bin/bt_init_wrapper.sh \
-    device/moto/sunfire/scripts/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh
+#    device/moto/sunfire/scripts/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh \
 
 # sysctl conf
 PRODUCT_COPY_FILES += \
@@ -65,7 +65,9 @@ PRODUCT_PACKAGES += \
 	DockAudio \
 	CMBootanimation \
 	SunfireParts \
-	Torch
+	Torch \
+	hciconfig \
+	hcitool \
 
 DEVICE_PACKAGE_OVERLAYS += device/moto/sunfire/overlay
 
