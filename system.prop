@@ -83,7 +83,7 @@ ro.usb.use_custom_service=1
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
 # but none are in range.
-wifi.supplicant_scan_interval=90
+wifi.supplicant_scan_interval=30
 
 # To set wifi (AP) driver's firmware path
 ro.wifi-ap.fw-path=/system/etc/wl/sdio-g-cdc-roml-reclaim-wme-apsta-idauth-minioctl.bin
@@ -112,3 +112,7 @@ persist.tegra.nvlog.level=4
 # DRM
 #persist.tegra.drmlib.asfdrm=libnvdrm.so
 #Drmdll.asfdrm=libnvdrm.so
+
+ro.goo.developerid=thekraven
+ro.goo.rom=Sunfire-Kraven
+ro.goo.version=3
